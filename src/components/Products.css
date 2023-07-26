@@ -1,0 +1,13 @@
+.product_card{
+    width: min-content;
+    height: 100 px;
+    background-color:cadetblue;
+    order:4;
+    position: flex;
+    align-self: center;
+}
+
+  .product_card:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }

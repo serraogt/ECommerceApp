@@ -1,0 +1,13 @@
+ <div className='container'>
+        {productData.map((product,id) => (  
+          <div>
+          <Product 
+            key={id}
+            productPic={product.productPic}
+            productName={product.productName}
+            price={product.price}
+            additional={product.additional}/> 
+          <br/>
+          </div>
+            )) }
+         </div> 

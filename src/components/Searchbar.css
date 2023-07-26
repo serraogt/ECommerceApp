@@ -1,0 +1,12 @@
+.search-box{
+    position: flex;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1e2127 ; 
+    border-radius: 5px;
+    padding: 10px;
+    
+  }
+  
