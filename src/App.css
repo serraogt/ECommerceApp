@@ -1,17 +1,17 @@
 .App {
   text-align: center;
-  backgroun-color: #282c34;
+  background-color: #282c34;
   background-size: cover;
   /*flex-direction: 
   row; order: 4;*/
 }
 
 .App-logo {
-  height: 50px;
+  position: flex;
+  height: 80px;
   width: auto;
-  position: fixed;
-  top: 20px;
   left: 47%;  /*?? */
+  margin: auto;
 }
 
 body {
@@ -23,4 +23,16 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+.container{
+  display:flex;
+  gap: 8px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.sb{
+  display: flex;
+  justify-content: center;
 }

@@ -5,6 +5,8 @@
     order:4;
     position: flex;
     align-self: center;
+    z-index: -1;
+  
 }
 
   .product_card:hover {

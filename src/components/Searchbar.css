@@ -1,12 +1,22 @@
 .search-box{
-    position: flex;
-    margin-top: 20px;
+    position: sticky;
+    top: 30;
+    left: 42%;
+    margin: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #1e2127 ; 
     border-radius: 5px;
     padding: 10px;
+    list-style: none;
+    height: 50;
+    width: max-content;
     
   }
+  
+  .search{
+    list-style: none;
+  }
+
   

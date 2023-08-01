@@ -20,7 +20,7 @@ function Searchbar(){
         onChange={inputHandler}
         variant="outlined"
         fullWidth
-        label="Search"
+        label="Search Product"
       />
     </div>
     <List input={inputText} />
