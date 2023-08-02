@@ -7,8 +7,6 @@ import ProductInfo from './pages/ProductInfo.jsx';
 
 
 function App() {
- 
-
 
   return (
     <div>

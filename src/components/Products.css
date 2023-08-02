@@ -6,6 +6,7 @@
     position: flex;
     align-self: center;
     z-index: -1;
+    padding-bottom: 20px;
   
 }
 

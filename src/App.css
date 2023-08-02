@@ -1,17 +1,30 @@
-.App {
+.Home {
   text-align: center;
   background-color: #282c34;
   background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   /*flex-direction: 
   row; order: 4;*/
 }
 
 .App-logo {
-  position: flex;
   height: 80px;
   width: auto;
-  left: 47%;  /*?? */
+  left: 47%; 
   margin: auto;
+  position: fixed;
+}
+
+.logo_cont{
+  position: fixed;
+  height: 200px;
+  width: 100%;
+  top: 150px;
+  margin-bottom: 20px;
+  background-color: blueviolet;
 }
 
 body {
@@ -27,12 +40,14 @@ body {
 
 .container{
   display:flex;
-  gap: 8px;
-  justify-content: space-evenly;
+  gap: 10px;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .sb{
-  display: flex;
+  display: absolute;
   justify-content: center;
 }
