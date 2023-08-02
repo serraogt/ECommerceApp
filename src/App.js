@@ -1,33 +1,22 @@
-import logo from './assets/logo.png';
-import './App.css';
-import React from 'react';
-import Product from './components/Products';
-import productData from './data/productData';
-import Searchbar from './components/Searchbar';
 
+import './App.css';
+import React, {useEffect} from 'react';
+import {Link, Route, Routes} from 'react-router-dom';
+import Home from './pages/Home';
+import ProductInfo from './pages/ProductInfo.jsx';
 
 
 function App() {
  
+
+
   return (
-    <div className="App">
-    
-      <img src={logo} className="App-logo" alt="logo" width={500} />
-      <Searchbar className="sb"/>
-      <div className='container'>
-        {productData.map((product,id) => (  
-          <div>
-          <Product 
-            key={id}
-            productPic={product.productPic}
-            productName={product.productName}
-            price={product.price}
-            additional={product.additional}/> 
-          <br/>
-          </div>
-            )) }
-         </div> 
-    </div> 
+    <div>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/product' element={<ProductInfo/>}/>
+      </Routes>
+    </div>
       );
 }
 

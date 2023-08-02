@@ -3,7 +3,7 @@ import p1 from "../assets/headphone.png"
 const productData=[
 {   id: 0,
     productPic: p1 ,
-    productName: "Sony SMax Headphone" ,
+    productName: "000000" ,
     price: 800 ,
     additional: "2 years warranty"
 },
@@ -36,7 +36,24 @@ const productData=[
     productName: "Sony SMax Headphone" ,
     price: 800 ,
     additional: "2 years warranty"
-}
+},{   id: 6,
+    productPic: p1 ,
+    productName: "Sony SMax Headphone" ,
+    price: 800 ,
+    additional: "2 years warranty"
+},
+{   id: 7,
+    productPic: p1 ,
+    productName: "Sony SMax Headphone" ,
+    price: 800 ,
+    additional: "2 years warranty"
+},
+{   id: 8,
+    productPic: p1 ,
+    productName: "Sony SMax Headphone" ,
+    price: 800 ,
+    additional: "2 years warranty"
+},
 ]
 
 export default productData;
