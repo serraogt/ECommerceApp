@@ -1,5 +1,6 @@
+// List.jsx
 import React from 'react';
-import "./List.css"
+import "./List.css";
 import data from "../data/productData.jsx";
 
 function List(props) {
@@ -7,14 +8,14 @@ function List(props) {
     if (props.input === '') {
       return true; // If input is empty, include all items
     } else {
-      return el.text.toLowerCase().includes(props.input.toLowerCase());
+      return el.productName.toLowerCase().includes(props.input.toLowerCase());
     }
   });
 
   return (
     <ul>
       {filteredData.map((item) => (
-        <li key={item.id}>{item.text}</li>
+        <li key={item.id}>{item.productName}</li>
       ))}
     </ul>
   );

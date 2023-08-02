@@ -1,3 +1,4 @@
+// Home.jsx
 import logo from '../assets/logo.png';
 import './Home.css';
 import React, { useEffect, useState } from 'react';
@@ -8,25 +9,43 @@ import { Link, Route, Routes } from 'react-router-dom';
 
 function Home() {
   const [countries, setCountries] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then(response => response.json())
-      .then(data => setCountries(data))
+      .then(data => {
+        setCountries(data);
+        setFilteredCountries(data); // Set initial filteredCountries to all countries
+      })
       .catch(error => console.log(error));
   }, []);
 
+  const handleInputChange = (inputValue) => {
+    // Filter countries based on the input value
+    const filteredData = countries.filter(country => {
+      const lowerCaseInput = inputValue.toLowerCase();
+      const lowerCaseCountryName = country.name.common.toLowerCase();
+      return lowerCaseCountryName.includes(lowerCaseInput);
+    });
+
+    setFilteredCountries(filteredData);
+  };
+  
   return (
     <div className="Home">
       <div className='top_container'>
         <div className='logo_cont'> <img src={logo} className="App-logo" alt="logo" width={500} /> </div>
-        <div> <Searchbar className="sb" /> </div>
+      
+        <div>
+          <Searchbar className="sb" onInputChange={handleInputChange} />
+        </div>
+
       </div>
       <div className='container'>
-        {countries.map(country => (
+        {filteredCountries.map(country => (
           <div key={country.name}> {/* Added key attribute */}
-             <Link to="/product"> 
-           {/*<Link to="/product/${country.id}">  tek ülke açılma kısmını doğru yapamadım */}
+             <Link to="/product">
             <Product
               productPic={country.flags.png}
               productName={country.name.common}

@@ -49,9 +49,10 @@ body {
   flex-wrap: wrap;
   margin-left: 100px;
   margin-right: 100px;
+  padding-top: 400px; /* Add padding to create space below the top_container */
 }
 
 .sb {
-  display: absolute;
+  /* Remove display: absolute */
   justify-content: center;
 }
