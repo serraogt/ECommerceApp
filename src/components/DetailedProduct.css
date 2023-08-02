@@ -1,0 +1,12 @@
+.info_box{
+    color: cadetblue;
+    display: flex;
+    align-items: center;
+    width: 620px;
+    padding: 36px 12px 36px 36px;
+    @media all and (max-width: 767px) {
+      flex-direction: column;
+      width: 260px;
+      padding: 18px;}
+    
+}

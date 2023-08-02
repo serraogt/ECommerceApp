@@ -25,7 +25,8 @@ function Home() {
       <div className='container'>
         {countries.map(country => (
           <div key={country.name}> {/* Added key attribute */}
-             <Link to="/product">
+             <Link to="/product"> 
+           {/*<Link to="/product/${country.id}">  tek ülke açılma kısmını doğru yapamadım */}
             <Product
               productPic={country.flags.png}
               productName={country.name.common}
