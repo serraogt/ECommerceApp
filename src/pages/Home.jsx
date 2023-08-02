@@ -1,5 +1,5 @@
 import logo from '../assets/logo.png';
-import '../App.css';
+import './Home.css';
 import React, { useEffect, useState } from 'react';
 import Product from '../components/Products';
 import productData from '../data/productData';
