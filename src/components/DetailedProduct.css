@@ -1,11 +1,12 @@
-.info_box{
-    color: cadetblue;
-    display: flex;
-    align-items: center;
+.product_info_card{
+    background-color: cadetblue;
+    display: inline-table;
+    align-items: normal;
+    height: min-content;
     width: 620px;
     padding: 36px 12px 36px 36px;
     @media all and (max-width: 767px) {
-      flex-direction: column;
+      flex-direction:row;
       width: 260px;
       padding: 18px;}
     

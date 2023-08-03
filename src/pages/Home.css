@@ -16,7 +16,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: blueviolet;
+  background-color: rgb(47, 36, 58);
+  opacity: 50%;
 }
 
 .App-logo {
@@ -50,6 +51,7 @@ body {
   margin-left: 100px;
   margin-right: 100px;
   padding-top: 400px; /* Add padding to create space below the top_container */
+  
 }
 
 .sb {

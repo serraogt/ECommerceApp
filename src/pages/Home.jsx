@@ -44,8 +44,8 @@ function Home() {
       </div>
       <div className='container'>
         {filteredCountries.map(country => (
-          <div key={country.name}> {/* Added key attribute */}
-             <Link to="/product">
+          <div key={country.name}>
+           <Link to={`/${country.name.common}`}>
             <Product
               productPic={country.flags.png}
               productName={country.name.common}
