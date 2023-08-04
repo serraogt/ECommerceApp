@@ -31,7 +31,7 @@ function ProductInfo(){
                 productName={country?.name?.common}
                 price={country?.area}
                 additional={country?.capital}
-                text={country?.capital}
+                text={country?.flags?.alt}
              
               />
             

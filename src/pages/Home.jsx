@@ -11,9 +11,8 @@ import Dropdown from '../components/Dropdown';
 function Home() {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
-  const [UNFilter, setUNFilter]= useState("All"); //şimdilik dursun.
-  //63. satırda filteredcountries.map olduğu için tek filtrede süzmeyi deneyeceğim 
-
+  const [UNFilter, setUNFilter]= useState([]);
+  
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then(response => response.json())
@@ -37,14 +36,16 @@ function Home() {
     console.log("chosenValue:", chosenValue);
     console.log("type of chosen value",typeof chosenValue)
     if (chosenValue === "all") {
-      setFilteredCountries(filteredCountries);
+      setUNFilter(filteredCountries);
       //eğer search ile bazı ülkeler filtrelenmişse kaldığı yerden devam etsin diye o veriyi kullandım
-    } else {
+    } 
+  else{
       const chosenCountries = filteredCountries.filter(country => {
         console.log(toString(country.unMember) === chosenValue)
         return toString(country.unMember) === chosenValue;
+        //all we unknown da olduğu için stringe çevirdim
       });
-      setFilteredCountries(chosenCountries);
+      setUNFilter(chosenCountries);
     }
   };
 
@@ -60,7 +61,7 @@ function Home() {
 
       </div>
       <div className='container'>
-        {filteredCountries.map(country => (
+        {UNFilter.map (country => (
           <div key={country.name}>
            <Link to={`/${country.name.common}`}>
             <Product
