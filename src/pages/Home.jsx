@@ -6,40 +6,57 @@ import Product from '../components/Products';
 import productData from '../data/productData';
 import Searchbar from '../components/Searchbar';
 import { Link, Route, Routes } from 'react-router-dom';
+import Dropdown from '../components/Dropdown';
 
 function Home() {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
+  const [UNFilter, setUNFilter]= useState("All"); //şimdilik dursun.
+  //62. satırda filteredcountries.map olduğu için tek filtrede süzmeyi deneyeceğim 
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then(response => response.json())
       .then(data => {
         setCountries(data);
-        setFilteredCountries(data); // Set initial filteredCountries to all countries
+        setFilteredCountries(data);
       })
       .catch(error => console.log(error));
   }, []);
 
   const handleInputChange = (inputValue) => {
-    // Filter countries based on the input value
     const filteredData = countries.filter(country => {
       const lowerCaseInput = inputValue.toLowerCase();
       const lowerCaseCountryName = country.name.common.toLowerCase();
       return lowerCaseCountryName.includes(lowerCaseInput);
     });
-
     setFilteredCountries(filteredData);
   };
+
+  const handleUNChange = (chosenValue) => {
+    console.log("chosenValue:", chosenValue);
+    console.log("type of chosen value",typeof chosenValue)
+    if (chosenValue === "all") {
+      setFilteredCountries(filteredCountries);
+      //eğer search ile bazı ülkeler filtrelenmişse kaldığı yerden devam etsin diye o veriyi kullandım
+    } else {
+      const chosenCountries = filteredCountries.filter(country => {
+        console.log(toString(country.unMember) === chosenValue)
+        return toString(country.unMember) === chosenValue;
+      });
+      setFilteredCountries(chosenCountries);
+    }
+  };
+
   
   return (
     <div className="Home">
       <div className='top_container'>
         <div className='logo_cont'> <img src={logo} className="App-logo" alt="logo" width={500} /> </div>
-      
         <div>
           <Searchbar className="sb" onInputChange={handleInputChange} />
         </div>
+          <Dropdown onInputChange={handleUNChange}></Dropdown>
 
       </div>
       <div className='container'>

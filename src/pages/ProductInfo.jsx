@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import logo from '../assets/logo.png';
 import DetailedProduct from "../components/DetailedProduct";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+
 
 function ProductInfo(){
     const { productName } = useParams()
@@ -23,8 +24,8 @@ function ProductInfo(){
     return(
         <div> 
          <div className='logo_cont'> <img src={logo} className="App-logo" alt="logo"/> </div>
+         <Link to="/">{"<Back to list"}</Link>
          <div className="info_box">
-
                 <DetailedProduct className="product"
                 productPic={country?.flags?.png}
                 productName={country?.name?.common}
