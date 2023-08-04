@@ -12,7 +12,7 @@ function Home() {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [UNFilter, setUNFilter]= useState("All"); //şimdilik dursun.
-  //62. satırda filteredcountries.map olduğu için tek filtrede süzmeyi deneyeceğim 
+  //63. satırda filteredcountries.map olduğu için tek filtrede süzmeyi deneyeceğim 
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")

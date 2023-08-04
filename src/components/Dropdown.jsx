@@ -1,10 +1,20 @@
-// Dropdown.jsx 
-const Dropdown = (props) => {
-  const handleInputChange = (event) => {
-    props.onInputChange(event.target.value,event.target.id); 
-    
-  };
+import { useState } from "react";
 
+// Dropdown.jsx 
+function Dropdown ({onInputChange}) {
+  const [chosen, setChosen]= useState("all");
+
+  let handleInputChange = (event) => {
+   setChosen(event.target.value); 
+  
+   console.log("type of on inpt chg",typeof onInputChange)
+
+    if (typeof onInputChange === "function") {
+      onInputChange(event.target.value);
+      console.log("event target value",event.target.value)
+      console.log("type of event target value", typeof event.target.value)
+    }
+ };
 
   return (
       <div className="selectWrapper">
