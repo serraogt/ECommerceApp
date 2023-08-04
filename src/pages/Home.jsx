@@ -43,7 +43,7 @@ function Home() {
       const chosenCountries = filteredCountries.filter(country => {
         console.log(toString(country.unMember) === chosenValue)
         return toString(country.unMember) === chosenValue;
-        //all we unknown da olduğu için stringe çevirdim
+        //all ve unknown da olduğu için stringe çevirdim
       });
       setUNFilter(chosenCountries);
     }
