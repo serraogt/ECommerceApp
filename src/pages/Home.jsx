@@ -31,28 +31,6 @@ function Home() {
       const lowerCaseCountryName = country.name.common.toLowerCase();
       return lowerCaseCountryName.includes(lowerCaseInput);
     });
-<<<<<<< HEAD
-    setFilteredCountries(filteredData);
-  };
-
-  const handleUNChange = (chosenValue) => {
-    console.log("chosenValue:", chosenValue);
-    console.log("type of chosen value",typeof chosenValue)
-    if (chosenValue === "all") {
-      setUNFilter(filteredCountries);
-      //eğer search ile bazı ülkeler filtrelenmişse kaldığı yerden devam etsin diye o veriyi kullandım
-    } 
-  else{
-      const chosenCountries = filteredCountries.filter(country => {
-        console.log(toString(country.unMember) === chosenValue)
-        return toString(country.unMember) === chosenValue;
-        //all ve unknown da olduğu için stringe çevirdim
-      });
-      setUNFilter(chosenCountries);
-    }
-  };
-
-=======
     setFilteredCountries(nameFilteredData)
   }
     const handleInputChange2 = (chosenValue) =>{
@@ -63,7 +41,6 @@ function Home() {
         return String(country.unMember) === chosenValue;
       }
     });
->>>>>>> 93df488 (search-filter karışıyor)
   
     setFilteredCountries(statusFilteredData);
   };
@@ -76,7 +53,7 @@ function Home() {
         <div>
           <Searchbar className="sb" onInputChange={handleInputChange} />
         </div>
-          <Dropdown onInputChange={handleInputChange2}></Dropdown>
+          <Dropdown onInputChange={handleInputChange}></Dropdown>
 
       </div>
       <div className='container'>
