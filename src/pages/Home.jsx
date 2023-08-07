@@ -11,8 +11,9 @@ import Dropdown from '../components/Dropdown';
 function Home() {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
-  const [UNFilter, setUNFilter]= useState([]);
-  
+  const [nameFilteredCountries, setNameFilteredCountries] = useState([]);
+  const [statusFilteredCountries, setStatusFilteredCountries] = useState([]);
+
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then(response => response.json())
@@ -21,14 +22,16 @@ function Home() {
         setFilteredCountries(data);
       })
       .catch(error => console.log(error));
-  }, []);
-
+  }, []); //yaşam döngüsü ve bileşenler arası etkileşim
+   
   const handleInputChange = (inputValue) => {
-    const filteredData = countries.filter(country => {
-      const lowerCaseInput = inputValue.toLowerCase();
+    const lowerCaseInput = inputValue.toLowerCase();
+  
+    const nameFilteredData = countries.filter((country) => {
       const lowerCaseCountryName = country.name.common.toLowerCase();
       return lowerCaseCountryName.includes(lowerCaseInput);
     });
+<<<<<<< HEAD
     setFilteredCountries(filteredData);
   };
 
@@ -49,7 +52,23 @@ function Home() {
     }
   };
 
+=======
+    setFilteredCountries(nameFilteredData)
+  }
+    const handleInputChange2 = (chosenValue) =>{
+    const statusFilteredData = countries.filter((country) => {
+      if (chosenValue === "all") {
+        return true;
+      } else {
+        return String(country.unMember) === chosenValue;
+      }
+    });
+>>>>>>> 93df488 (search-filter karışıyor)
   
+    setFilteredCountries(statusFilteredData);
+  };
+  
+
   return (
     <div className="Home">
       <div className='top_container'>
@@ -57,11 +76,11 @@ function Home() {
         <div>
           <Searchbar className="sb" onInputChange={handleInputChange} />
         </div>
-          <Dropdown onInputChange={handleUNChange}></Dropdown>
+          <Dropdown onInputChange={handleInputChange2}></Dropdown>
 
       </div>
       <div className='container'>
-        {UNFilter.map (country => (
+        {filteredCountries.map (country => (
           <div key={country.name}>
            <Link to={`/${country.name.common}`}>
             <Product

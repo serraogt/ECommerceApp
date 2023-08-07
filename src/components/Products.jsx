@@ -6,7 +6,7 @@ import './Products.css';
 function Products({productPic, productName, price, additional} ){
     return(
         <div className="product_card">
-            <img alt="product" src={productPic} width={248} height={248}/><br/>
+            <img alt="product" src={productPic} width={240} height={150}/><br/>
             <label> {productName}</label><br/>
             <label>{price} TL</label><br/>
             <label>{additional}</label><br/>

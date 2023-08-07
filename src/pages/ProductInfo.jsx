@@ -19,7 +19,7 @@ function ProductInfo(){
       })
         .catch(error => console.log(error));
     },[productName]);
-    //dependency arraydeki [name], url deki name her değiştiğinde fonksiyonun yeniden çalışacağı anlamına gelir.
+    //dependency arraydeki [name], url deki name her değiştiğinde fonksiyonun yeniden çalışacağı anlamında.
 
     return(
         <div> 

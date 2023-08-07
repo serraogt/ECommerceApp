@@ -1,13 +1,11 @@
+// Dropdown.jsx 
 import { useState } from "react";
 
-// Dropdown.jsx 
 function Dropdown ({onInputChange}) {
   const [chosen, setChosen]= useState("all");
 
-  let handleInputChange = (event) => {
+  let inputHandler = (event) => {
    setChosen(event.target.value); 
-  
-   console.log("type of on inpt chg",typeof onInputChange)
 
     if (typeof onInputChange === "function") {
       onInputChange(event.target.value);
@@ -25,7 +23,7 @@ function Dropdown ({onInputChange}) {
           className="select"
           name="status"
           id="status"
-          onChange={handleInputChange}
+          onChange={inputHandler}
         >
           <option value="all">All</option>
           <option value="true" >True</option>
