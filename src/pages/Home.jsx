@@ -28,6 +28,7 @@ function Home() {
     const lowerCaseInput = inputValue.toLowerCase();
   
     const nameFilteredData = countries.filter((country) => {
+      //bu^ satırda statusfilteredcountries.filter yapmayı da denedim aşağıdaki için de tam tersi ama çalıştıramadım
       const lowerCaseCountryName = country.name.common.toLowerCase();
       return lowerCaseCountryName.includes(lowerCaseInput);
     });
@@ -53,7 +54,7 @@ function Home() {
         <div>
           <Searchbar className="sb" onInputChange={handleInputChange} />
         </div>
-          <Dropdown onInputChange={handleInputChange}></Dropdown>
+          <Dropdown onInputChange={handleInputChange2}></Dropdown>
 
       </div>
       <div className='container'>
