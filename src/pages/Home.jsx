@@ -1,3 +1,5 @@
+
+
 // Home.jsx
 import logo from '../assets/logo.png';
 import './Home.css';
@@ -7,7 +9,6 @@ import productData from '../data/productData';
 import Searchbar from '../components/Searchbar';
 import { Link, Route, Routes } from 'react-router-dom';
 import Dropdown from '../components/Dropdown';
-//
 
 function Home() {
   const [countries, setCountries] = useState([]);
@@ -28,50 +29,36 @@ function Home() {
       .catch(error => console.log(error));
   }, []); //yaşam döngüsü ve bileşenler arası etkileşim
    
+
   const handleInputChange = (inputValue) => {
-
-    setInputValue(inputValue);
-
-    if (chosenValue === "all") {
+  
+      setInputValue(inputValue);
       const lowerCaseInput = inputValue.toLowerCase();
-      const nameFilteredData = countries.filter((country) => {
-        //bu^ satırda statusfilteredcountries.filter yapmayı da denedim aşağıdaki için de tam tersi ama çalıştıramadım
+    
+      const filteredData = countries.filter((country) => {
         const lowerCaseCountryName = country.name.common.toLowerCase();
-        return lowerCaseCountryName.includes(lowerCaseInput)
-    })
-    setFilteredCountries(nameFilteredData);
-     setNameFilteredCountries(nameFilteredData);
-    }
+        return (
+          lowerCaseCountryName.includes(lowerCaseInput) &&
+          (chosenValue === "all" || String(country.unMember) === chosenValue)
+        );
+      });
+    
+      setFilteredCountries(filteredData);
+    };
+  
 
-    else{
-    const lowerCaseInput = inputValue.toLowerCase();
-    const nameFilteredData = countries.filter((country) => {
-      //bu^ satırda statusfilteredcountries.filter yapmayı da denedim aşağıdaki için de tam tersi ama doğru çalıştıramadım
-      const lowerCaseCountryName = country.name.common.toLowerCase();
-      return lowerCaseCountryName.includes(lowerCaseInput) && String(country.unMember) === chosenValue;
-    });
-    setFilteredCountries(nameFilteredData)
-    setNameFilteredCountries(nameFilteredData);
-    }
-
-   
-  }
-
-    const handleInputChange2 = (chosenValue) =>{
-    const statusFilteredData = filteredCountries.filter((country) => {
-      if (chosenValue === "all") {
-        const lowerCaseInput = inputValue.toLowerCase();
-      //bu^ satırda namefilteredcountries.filter yapmayı da denedim yukarıdaki için de tam tersi ama doğru çalıştıramadım
-      const lowerCaseCountryName = country.name.common.toLowerCase();
-      return nameFilteredCountries;
-       //lowerCaseCountryName.includes(lowerCaseInput);
-      }
-       else {
-        return String(country.unMember) === chosenValue && nameFilteredCountries;
-      }
-    });
+  const handleInputChange2 = (chosenValue) => {
     setChosenValue(chosenValue);
-    setFilteredCountries(statusFilteredData);
+    const lowerCaseInput = inputValue.toLowerCase();
+  
+    const filteredData = countries.filter((country) => {
+      const lowerCaseCountryName = country.name.common.toLowerCase();
+      return (
+        String(country.unMember) === chosenValue || chosenValue === "all"
+      ) && lowerCaseCountryName.includes(lowerCaseInput);
+    });
+  
+    setFilteredCountries(filteredData);
   };
   
 
