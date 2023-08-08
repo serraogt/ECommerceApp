@@ -13,6 +13,9 @@ function Home() {
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [nameFilteredCountries, setNameFilteredCountries] = useState([]);
   const [statusFilteredCountries, setStatusFilteredCountries] = useState([]);
+  const [inputValue,setInputValue]=useState([]);
+  const [chosenValue,setChosenValue]=useState([]);
+  
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -25,24 +28,41 @@ function Home() {
   }, []); //yaşam döngüsü ve bileşenler arası etkileşim
    
   const handleInputChange = (inputValue) => {
+
+    setInputValue(inputValue);
+
+    if (chosenValue === "all") {
+      const lowerCaseInput = inputValue.toLowerCase();
+      const nameFilteredData = countries.filter((country) => {
+        //bu^ satırda statusfilteredcountries.filter yapmayı da denedim aşağıdaki için de tam tersi ama çalıştıramadım
+        const lowerCaseCountryName = country.name.common.toLowerCase();
+        return lowerCaseCountryName.includes(lowerCaseInput)
+    })
+    setFilteredCountries(nameFilteredData)}
+
+    else{
     const lowerCaseInput = inputValue.toLowerCase();
-  
     const nameFilteredData = countries.filter((country) => {
       //bu^ satırda statusfilteredcountries.filter yapmayı da denedim aşağıdaki için de tam tersi ama çalıştıramadım
       const lowerCaseCountryName = country.name.common.toLowerCase();
-      return lowerCaseCountryName.includes(lowerCaseInput);
+      return lowerCaseCountryName.includes(lowerCaseInput) && String(country.unMember) === chosenValue;
     });
-    setFilteredCountries(nameFilteredData)
+    setFilteredCountries(nameFilteredData)}
   }
+
     const handleInputChange2 = (chosenValue) =>{
     const statusFilteredData = countries.filter((country) => {
       if (chosenValue === "all") {
-        return true;
-      } else {
+        const lowerCaseInput = inputValue.toLowerCase();
+      //bu^ satırda namefilteredcountries.filter yapmayı da denedim aşağıdaki için de tam tersi ama çalıştıramadım
+      const lowerCaseCountryName = country.name.common.toLowerCase();
+      return lowerCaseCountryName.includes(lowerCaseInput);
+      }
+       else {
         return String(country.unMember) === chosenValue;
       }
     });
-  
+    setChosenValue(chosenValue);
     setFilteredCountries(statusFilteredData);
   };
   
