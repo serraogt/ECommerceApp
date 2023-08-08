@@ -38,28 +38,35 @@ function Home() {
         const lowerCaseCountryName = country.name.common.toLowerCase();
         return lowerCaseCountryName.includes(lowerCaseInput)
     })
-    setFilteredCountries(nameFilteredData)}
+    setFilteredCountries(nameFilteredData);
+     setNameFilteredCountries(nameFilteredData);
+    }
 
     else{
     const lowerCaseInput = inputValue.toLowerCase();
     const nameFilteredData = countries.filter((country) => {
-      //bu^ satırda statusfilteredcountries.filter yapmayı da denedim aşağıdaki için de tam tersi ama çalıştıramadım
+      //bu^ satırda statusfilteredcountries.filter yapmayı da denedim aşağıdaki için de tam tersi ama doğru çalıştıramadım
       const lowerCaseCountryName = country.name.common.toLowerCase();
       return lowerCaseCountryName.includes(lowerCaseInput) && String(country.unMember) === chosenValue;
     });
-    setFilteredCountries(nameFilteredData)}
+    setFilteredCountries(nameFilteredData)
+    setNameFilteredCountries(nameFilteredData);
+    }
+
+   
   }
 
     const handleInputChange2 = (chosenValue) =>{
-    const statusFilteredData = countries.filter((country) => {
+    const statusFilteredData = filteredCountries.filter((country) => {
       if (chosenValue === "all") {
         const lowerCaseInput = inputValue.toLowerCase();
-      //bu^ satırda namefilteredcountries.filter yapmayı da denedim aşağıdaki için de tam tersi ama çalıştıramadım
+      //bu^ satırda namefilteredcountries.filter yapmayı da denedim yukarıdaki için de tam tersi ama doğru çalıştıramadım
       const lowerCaseCountryName = country.name.common.toLowerCase();
-      return lowerCaseCountryName.includes(lowerCaseInput);
+      return nameFilteredCountries;
+       //lowerCaseCountryName.includes(lowerCaseInput);
       }
        else {
-        return String(country.unMember) === chosenValue;
+        return String(country.unMember) === chosenValue && nameFilteredCountries;
       }
     });
     setChosenValue(chosenValue);
