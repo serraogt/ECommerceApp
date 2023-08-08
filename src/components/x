@@ -1,3 +1,4 @@
+ /* kesilen kodlar
  <div className='container'>
         {productData.map((product,id) => (  
           <div>
@@ -11,3 +12,24 @@
           </div>
             )) }
          </div> 
+
+
+         const handleInputChange = (inputValue) => {
+          ;
+           };
+           setFilteredCountries(filteredData);
+         };
+       
+        
+        //   if (chosenValue === "all") {
+             setUNFilter(filteredData);
+         
+           } 
+        // else{
+             const chosenCountries = filteredData.filter(country => {
+               return toString(country.unMember) === chosenValue;
+               //all ve unknown da olduğu için stringe çevirdim
+             });
+             setUNFilter(chosenCountries);
+           }
+         */
