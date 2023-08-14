@@ -1,0 +1,34 @@
+/*import { createSlice} from "@reduxjs/toolkit";
+const [countries, setCountries] = useState([]);
+// gerek yok sanki şuan
+const initialState = {countries: [],filteredCountries: []};
+
+useEffect(() => {
+    fetch("https://restcountries.com/v3.1/all")
+      .then(response => response.json())
+      .then(data => {
+        setCountries(data);
+        setFilteredCountries(data);
+      })
+      .catch(error => console.log(error));
+  }, []); //yaşam döngüsü ve bileşenler arası etkileşim
+   
+
+export const counterSlice=createSlice({
+    name:"contries_curr",
+    initialState: {
+        countries_curr: data },
+        //yoksa response mı?
+    reducers: {
+        delete: (country) =>{
+            data.country;
+            //
+        },
+        insert: (country) =>{
+            data.country;
+            //ne yazıcam
+        }
+    }    
+});
+export const {delete, insert }= counterSlice.actions;
+export default counterSlice.reducer;*/

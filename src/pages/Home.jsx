@@ -9,6 +9,7 @@ import productData from '../data/productData';
 import Searchbar from '../components/Searchbar';
 import { Link, Route, Routes } from 'react-router-dom';
 import Dropdown from '../components/Dropdown';
+import Delete from "./Delete";
 
 function Home() {
   const [countries, setCountries] = useState([]);
@@ -63,14 +64,14 @@ function Home() {
   
 
   return (
-    <div className="Home">
+    <div className="Home"> 
       <div className='top_container'>
-        <div className='logo_cont'> <img src={logo} className="App-logo" alt="logo" width={500} /> </div>
+        <img src={logo} className="App-logo" alt="logo" />
+        <Link to={'/delete'} > Delete Country</Link>
         <div>
           <Searchbar className="sb" onInputChange={handleInputChange} />
         </div>
           <Dropdown onInputChange={handleInputChange2}></Dropdown>
-
       </div>
       <div className='container'>
         {filteredCountries.map (country => (
