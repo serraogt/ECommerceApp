@@ -37,9 +37,10 @@ function Home() {
     
       const filteredData = countries.filter((country) => {
         const lowerCaseCountryName = country.name.common.toLowerCase();
+        console.log("sdcsdfsdfsd" + chosenValue);
         return (
           lowerCaseCountryName.includes(lowerCaseInput) &&
-          (chosenValue === "all" || String(country.unMember) === chosenValue)
+          (chosenValue == '' || chosenValue === "all" || String(country.unMember) === chosenValue)
         );
       });
     
