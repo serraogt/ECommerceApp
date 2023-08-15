@@ -30,14 +30,15 @@ function Home() {
   }, []); //yaşam döngüsü ve bileşenler arası etkileşim
    
 
-  const handleInputChange = (inputValue) => {
+  const handleInputChangeInputValue = (inputValue) => {
   
       setInputValue(inputValue);
+      
       const lowerCaseInput = inputValue.toLowerCase();
     
       const filteredData = countries.filter((country) => {
         const lowerCaseCountryName = country.name.common.toLowerCase();
-        console.log("sdcsdfsdfsd" + chosenValue);
+
         return (
           lowerCaseCountryName.includes(lowerCaseInput) &&
           (chosenValue == '' || chosenValue === "all" || String(country.unMember) === chosenValue)
@@ -48,8 +49,11 @@ function Home() {
     };
   
 
-  const handleInputChange2 = (chosenValue) => {
+  const handleInputChangeUnMembers = (chosenValue,inputValue) => {
+
     setChosenValue(chosenValue);
+
+    if(inputValue){
     const lowerCaseInput = inputValue.toLowerCase();
   
     const filteredData = countries.filter((country) => {
@@ -60,6 +64,17 @@ function Home() {
     });
   
     setFilteredCountries(filteredData);
+  }
+  else{
+    const filteredData = countries.filter((country) => {
+      const lowerCaseCountryName = country.name.common.toLowerCase();
+      return (
+        String(country.unMember) === chosenValue || chosenValue === "all"
+      );
+    });
+  
+    setFilteredCountries(filteredData);
+  }
   };
   
 
@@ -69,9 +84,9 @@ function Home() {
         <img src={logo} className="App-logo" alt="logo" />
         <Link to={'/delete'} > Delete Country</Link>
         <div>
-          <Searchbar className="sb" onInputChange={handleInputChange} />
+          <Searchbar className="sb" onInputChange={handleInputChangeInputValue} />
         </div>
-          <Dropdown onInputChange={handleInputChange2}></Dropdown>
+          <Dropdown onInputChange={handleInputChangeUnMembers}></Dropdown>
       </div>
       <div className='container'>
         {filteredCountries.map (country => (
