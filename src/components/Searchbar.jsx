@@ -40,7 +40,6 @@ function Searchbar({ onInputChange }) {
           }}
         />
       </div>
-
     </div>
   );
 }
