@@ -8,18 +8,25 @@ import Searchbar from '../components/Searchbar';
 import { Link, Route, Routes } from 'react-router-dom';
 import Dropdown from '../components/Dropdown';
 import Delete from "./Delete";
-import { useSelector, useDispatch } from 'react-redux/es/hooks/useSelector';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCountriesData } from "../data/Slicer";
 
 function Home() {
-  const [countries, setCountries] = useState([]);
+  //const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [nameFilteredCountries, setNameFilteredCountries] = useState([]);
   const [statusFilteredCountries, setStatusFilteredCountries] = useState([]);
   const [inputValue,setInputValue]=useState([]);
   const [chosenValue,setChosenValue]=useState([]);
 
-  useEffect(() => {
+  const dispatch = useDispatch();
+  const countries = useSelector((state) => state.counter.countries);
+
+  useEffect(() => { //use effectte if else yok
+    dispatch(fetchCountriesData());
+  }, [dispatch]);
+
+ /* useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then(response => response.json())
       .then(data => {
@@ -27,7 +34,7 @@ function Home() {
         setFilteredCountries(data);
       })
       .catch(error => console.log(error));
-  }, []); //yaşam döngüsü ve bileşenler arası etkileşim
+  }, []); //yaşam döngüsü ve bileşenler arası etkileşim */
    
 
   const handleInputChangeInputValue = (inputValue) => {
@@ -110,7 +117,7 @@ Key olur unique olmazsa
     at Router (http://localhost:3000/static/js/bundle.js:64116:15)
     at BrowserRouter (http://localhost:3000/static/js/bundle.js:62219:5) */}
 
-           <Link to={`/${country.name.common}`}>
+          <Link to={`/${country.name.common}`}>
             <Product
               productPic={country.flags.png}
               productName={country.name.common}

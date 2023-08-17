@@ -1,3 +1,4 @@
+//Slicer.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -9,6 +10,7 @@ export const counterSlice = createSlice({
   name: "countries",
   initialState,
   reducers: {
+    //asagidakiler actionlardır.
     deleteCountry: (state, action) => {
       const countryToDelete = action.payload;
       state.countries = state.countries.filter(
