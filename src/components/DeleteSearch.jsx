@@ -4,16 +4,17 @@ import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 import { TextField } from "@material-ui/core";
 
-function SearchBarToDelete({ onInputChange , data}) {
+function SearchBarToDelete({ onInputChange}) {
  // const [filteredData, setFilteredData] = useState([]);
   const [inputText, setInputText] = useState("");
   let inputHandler = (e) => {
     
-    setInputText(e.target.value);
+    const input=e.target.value
+    setInputText(input);
 
     // Call the onInputChange function passed from the parent component
     if (typeof onInputChange === "function") {
-      onInputChange(e.target.value);
+      onInputChange(input);
     }
   };
 
