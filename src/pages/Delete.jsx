@@ -67,9 +67,10 @@ const handleDelete = (country) => {
 
   return (
     <div>
+       <Header renderUnfilteredList={renderUnfilteredList} width={100} />
       <Link to={'/'}>back</Link><br />
       <div>Number Of Countries {countriesLength}</div>
-      <Header renderUnfilteredList={renderUnfilteredList} />
+     
       <SearchBarToDelete placeholder="Country to delete" onInputChange={handleFilter} />
       <div className='long_container'>
         {filteredCountries.map(country => (

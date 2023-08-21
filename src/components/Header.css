@@ -1,15 +1,12 @@
 .header {
-    width: 100%;
-    height: fit-content;
-   
-      &:hover {
-        cursor: pointer;
-      }
-      width: 40%;
-      margin-top: 36px;
-      @media all and (max-width: 767px) {
-        width: 260px;
-      
-    }
+    width: 20%;
+    height: auto;
+      margin-top: 16px;
+    align-items: center;
+    justify-content: center;
   }
   
+  .header_logo{
+    width: 100px;
+    justify-content: center;
+  }
