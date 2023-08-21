@@ -67,7 +67,7 @@ const handleDelete = (country) => {
 
   return (
     <div>
-       <Header renderUnfilteredList={renderUnfilteredList} width={100} />
+      <div><Header renderUnfilteredList={renderUnfilteredList} width={100} /></div>
       <Link to={'/'}>back</Link><br />
       <div>Number Of Countries {countriesLength}</div>
      

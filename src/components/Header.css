@@ -1,12 +1,13 @@
 .header {
-    width: 20%;
-    height: auto;
-      margin-top: 16px;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .header_logo{
-    width: 100px;
-    justify-content: center;
-  }
+  width: 100%; 
+  height: auto;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_logo{
+  width: 100px;
+  justify-content: center;
+} 
