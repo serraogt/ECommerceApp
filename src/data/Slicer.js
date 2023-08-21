@@ -10,7 +10,7 @@ export const counterSlice = createSlice({
   name: "countries",
   initialState,
   reducers: {
-    //asagidakiler actionlardır.
+    //asagidakiler action
     deleteCountry: (state, action) => {
       const countryToDelete = action.payload;
       state.countries = state.countries.filter(

@@ -54,15 +54,16 @@ function DeletePage() {
     setCountryToDelete(null);
   };
 
-  const handleDelete = () => {
-    if (countryToDelete) {
-      dispatch(deleteCountry(countryToDelete.name.common));
-      setInputValue("");
-      setShowDeleteConfirmation(false);
-      setCountryToDelete(null);
-      console.log("hehe");
-    }
-  };
+const handleDelete = (country) => {
+  dispatch(deleteCountry(country.name.common)); // Pass the country name as payload
+  setInputValue("");
+  setShowDeleteConfirmation(false);
+  setCountryToDelete(null);
+
+  // Update the filteredCountries state
+  setFilteredCountries(filteredCountries.filter(c => c.name.common !== country.name.common));
+};
+  
 
   return (
     <div>
