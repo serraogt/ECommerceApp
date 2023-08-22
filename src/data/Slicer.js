@@ -13,11 +13,12 @@ export const counterSlice = createSlice({
     //asagidakiler action
     deleteCountry: (state, action) => {
       const countryToDelete = action.payload;
+      console.log(typeof countryToDelete , "is the type")
       state.countries = state.countries.filter(
-        (country) => country !== countryToDelete
+        (country) => country.name.common !== countryToDelete.name.common
       );
       state.filteredCountries = state.filteredCountries.filter(
-        (country) => country !== countryToDelete
+        (country) => country.name.common !== countryToDelete.name.common
       );
     },
     insertCountry: (state, action) => {

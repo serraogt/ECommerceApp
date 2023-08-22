@@ -5,9 +5,9 @@ import SearchBarToDelete from "../components/DeleteSearch";
 import Header from "../components/Header";
 import { fetchCountriesData, deleteCountry } from "../data/Slicer";
 import "./Delete.css";
-import CheckIcon from '@material-ui/icons/Check';
+/*import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from '@material-ui/icons/Delete';*/
 
 function DeletePage() {
   const [filteredCountries, setFilteredCountries] = useState([]);
@@ -55,7 +55,7 @@ function DeletePage() {
   };
 
 const handleDelete = (country) => {
-  dispatch(deleteCountry(country.name.common)); // Pass the country name as payload
+  dispatch(deleteCountry(country)); // Pass the country name as payload
   setInputValue("");
   setShowDeleteConfirmation(false);
   setCountryToDelete(null);
@@ -80,11 +80,11 @@ const handleDelete = (country) => {
             {showDeleteConfirmation && country === countryToDelete ? (
               <div className="trash-content">
                 Delete?
-                <CheckIcon onClick={handleDelete} />
-                <CloseIcon onClick={handleCrossClick} />
+                <h5 onClick={handleDelete}> Y </h5>
+                <h5 onClick={handleCrossClick} > N </h5>
               </div>
             ) : (
-              <DeleteIcon className="trash" onClick={() => handleTrashClick(country)} />
+              <h5 className="trash" onClick={() => handleTrashClick(country)} > Del </h5>
             )}
           </div>
         ))}
