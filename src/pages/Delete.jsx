@@ -54,14 +54,23 @@ function DeletePage() {
     setCountryToDelete(null);
   };
 
-const handleDelete = (country) => {
-  dispatch(deleteCountry(country.name.common)); // Pass the country name as payload
+
+/**
+ *  Handle delete fonksiyonu parametre almasına gerek yok
+ *  countryToDelete stateti silinecek country nesnesini tutuyor zaten
+ *  Eğer handleDelete fonksiyonu arguman alacaksa örneğin 
+ *  const handleDelete = (country) => {// do something }
+ *  bunu çağırırken bu nesneyi vererek çağırmalısın mesela
+ *  onClick ={ () => handleDelete(country)}
+ */
+const handleDelete = () => {
+  dispatch(deleteCountry(countryToDelete.name.common)); // Pass the country name as payload
   setInputValue("");
   setShowDeleteConfirmation(false);
   setCountryToDelete(null);
 
   // Update the filteredCountries state
-  setFilteredCountries(filteredCountries.filter(c => c.name.common !== country.name.common));
+  setFilteredCountries(filteredCountries.filter(c => c.name.common !== countryToDelete.name.common));
 };
   
 
@@ -70,12 +79,11 @@ const handleDelete = (country) => {
       <div><Header renderUnfilteredList={renderUnfilteredList} width={100} /></div>
       <Link to={'/'}>back</Link><br />
       <div>Number Of Countries {countriesLength}</div>
-     
       <SearchBarToDelete placeholder="Country to delete" onInputChange={handleFilter} />
       <div className='long_container'>
         {filteredCountries.map(country => (
           <div className="individual_box" key={country.name.common}>
-            <text>{country.name.common}</text>
+            <p>{country.name.common}</p>
             {/* Conditionally render the content based on state */}
             {showDeleteConfirmation && country === countryToDelete ? (
               <div className="trash-content">
