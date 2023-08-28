@@ -112,7 +112,7 @@ function onClick(functionToBeExecuted){
                   Are sure you want to delete the country {country.name.common}?
                 </Typography>
                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                  This cannot be returned
+                  This cannot be undone
                 </Typography>
                 <div className="trash-content">
                 <CheckIcon onClick={handleDelete} />

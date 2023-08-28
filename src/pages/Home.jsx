@@ -23,9 +23,9 @@ function Home() {
   const countries = useSelector((state) => state.counter.countries);
   console.log("frender")
   console.log(countries)
-  useEffect(() => { //use effectte if else yok
+ /* useEffect(() => { //use effectte if else yok
     dispatch(fetchCountriesData());
-  }, []);
+  }, []); */
  /* useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then(response => response.json())
