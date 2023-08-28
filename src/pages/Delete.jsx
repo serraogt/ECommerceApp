@@ -8,12 +8,22 @@ import "./Delete.css";
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
 
 function DeletePage(props) {
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
   const [countryToDelete, setCountryToDelete] = useState(null);
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
 
   const dispatch = useDispatch();
   const countries = useSelector((state) => {
@@ -46,6 +56,7 @@ function DeletePage(props) {
   const handleTrashClick = (country) => {
     setShowDeleteConfirmation(true);
     setCountryToDelete(country);
+    setOpen(true);
     console.log("set Ettim")
   };
 
@@ -89,11 +100,28 @@ function onClick(functionToBeExecuted){
             <p>{country.name.common}</p>
             {/* Conditionally render the content based on state */}
             {showDeleteConfirmation && country === countryToDelete ? (
-              <div className="trash-content">
-                Delete?
+              
+            <Modal 
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box className='modal'>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                  Are sure you want to delete the country {country.name.common}?
+                </Typography>
+                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                  This cannot be returned
+                </Typography>
+                <div className="trash-content">
                 <CheckIcon onClick={handleDelete} />
                 <CloseIcon onClick={handleCrossClick} />
-              </div>
+              </div> 
+              </Box>
+            </Modal>
+        
+            /*  */
             ) : (
               <DeleteIcon className="trash" onClick={() => handleTrashClick(country)} />
             )}
