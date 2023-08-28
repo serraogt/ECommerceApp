@@ -26,6 +26,7 @@ function Home() {
  /* useEffect(() => { //use effectte if else yok
     dispatch(fetchCountriesData());
   }, []); */
+  
  /* useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then(response => response.json())
