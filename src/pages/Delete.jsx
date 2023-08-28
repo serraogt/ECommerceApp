@@ -9,7 +9,7 @@ import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-function DeletePage() {
+function DeletePage(props) {
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
@@ -19,13 +19,12 @@ function DeletePage() {
   const countries = useSelector((state) => {
     return state.counter.countries;
   });
-
-  const countriesLength = countries.length;
-
+  const countriesLength = useSelector((state) => state.counter.countries.length);
+  /*
   useEffect(() => {
     dispatch(fetchCountriesData());
   }, [dispatch]);
-
+  */
   const renderUnfilteredList = () => {
     setFilteredCountries(countries);
   };
@@ -47,6 +46,7 @@ function DeletePage() {
   const handleTrashClick = (country) => {
     setShowDeleteConfirmation(true);
     setCountryToDelete(country);
+    console.log("set Ettim")
   };
 
   const handleCrossClick = () => {
@@ -72,8 +72,11 @@ const handleDelete = () => {
   // Update the filteredCountries state
   setFilteredCountries(filteredCountries.filter(c => c.name.common !== countryToDelete.name.common));
 };
-  
+  /*
+function onClick(functionToBeExecuted){
 
+  functionToBeExecuted(element)
+}*/
   return (
     <div>
       <div><Header renderUnfilteredList={renderUnfilteredList} width={100} /></div>

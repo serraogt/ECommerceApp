@@ -21,10 +21,10 @@ function Home() {
 
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.counter.countries);
-
+  console.log("frender")
   useEffect(() => { //use effectte if else yok
     dispatch(fetchCountriesData());
-  }, [dispatch]);
+  }, []);
 
  /* useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")

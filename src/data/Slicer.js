@@ -14,10 +14,10 @@ export const counterSlice = createSlice({
     deleteCountry: (state, action) => {
       const countryToDelete = action.payload;
       state.countries = state.countries.filter(
-        (country) => country !== countryToDelete
+        (country) => country.name.common !== countryToDelete
       );
       state.filteredCountries = state.filteredCountries.filter(
-        (country) => country !== countryToDelete
+        (country) => country.name.common !== countryToDelete
       );
     },
     insertCountry: (state, action) => {
