@@ -1,4 +1,4 @@
-!!!!IMPORTANT
+# !!!!IMPORTANT
 Because of the cache causes, there is one block of code that needs to be taken outside of the comment and run once, and then commented again in pages/Home.js component.
 
 
