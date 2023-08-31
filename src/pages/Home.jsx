@@ -26,6 +26,7 @@ function Home() {
  /* useEffect(() => { //use effectte if else yok
     dispatch(fetchCountriesData());
   }, []); */
+  //!!!!!! uncomment once, and then comment for caching issues
   
  /* useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
