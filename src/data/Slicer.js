@@ -37,13 +37,14 @@ export const { deleteCountry, insertCountry, setCountriesData } = counterSlice.a
 
 export default counterSlice.reducer;
 
+
+
 // Redux Thunk kullanarak API'den verileri çekme
 //bunu yapamamıştım chatgpt verdi tam bilmiyorum
 export const fetchCountriesData = () => async (dispatch) => {
   try {
     const response = await fetch("https://restcountries.com/v3.1/all");
     const data = await response.json();
-    console.log("calisti")
     dispatch(setCountriesData(data));
   } catch (error) {
     console.error("Error fetching data:", error);

@@ -9,7 +9,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import Dropdown from '../components/Dropdown';
 import Delete from "./Delete";
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchCountriesData } from "../data/Slicer";
+
 
 function Home() {
   //const [countries, setCountries] = useState([]);
@@ -18,16 +18,11 @@ function Home() {
   const [statusFilteredCountries, setStatusFilteredCountries] = useState([]);
   const [inputValue,setInputValue]=useState([]);
   const [chosenValue,setChosenValue]=useState([]);
-
-  const dispatch = useDispatch();
+ 
   const countries = useSelector((state) => state.counter.countries);
   console.log("frender")
   console.log(countries)
- /* useEffect(() => { //use effectte if else yok
-    dispatch(fetchCountriesData());
-  }, []); */
-  //!!!!!! uncomment once, and then comment for caching issues
-  
+
  /* useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then(response => response.json())
@@ -100,24 +95,6 @@ function Home() {
       <div className='container'>
         {filteredCountries.map (country => (
           <div key={country.name.common}> 
-
-{/* 
-
-Eğer key olmazsa Warning: Each child in a list should have a unique "key" prop. 
-
-Key olur unique olmazsa
-
-9react-dom.development.js:86 Warning: Encountered two children with the same key, `[object Object]`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
-    at div
-    at div
-    at Home (http://localhost:3000/main.181d7920c195571c3c68.hot-update.js:45:84)
-    at RenderedRoute (http://localhost:3000/static/js/bundle.js:63546:5)
-    at Routes (http://localhost:3000/static/js/bundle.js:64178:5)
-    at div
-    at App
-    at Provider (http://localhost:3000/static/js/bundle.js:59428:3)
-    at Router (http://localhost:3000/static/js/bundle.js:64116:15)
-    at BrowserRouter (http://localhost:3000/static/js/bundle.js:62219:5) */}
 
           <Link to={`/${country.name.common}`}>
             <Product
