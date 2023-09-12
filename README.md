@@ -1,3 +1,22 @@
+cache sıkıntısı olduğunu düşündüğüm bir sıkıntı var.
+Home.jsx deki  
+
+const dispatch = useDispatch();
+  const countries = useSelector((state) => state.counter.countries);
+  console.log("frender")
+  console.log(countries)
+
+altındaki 
+
+ /* useEffect(() => { //use effectte if else yok
+    dispatch(fetchCountriesData());
+  }, []); */
+
+kod bloğunu yoruma almıştık. sebebi de delete page de silme işlemi yapıldıktan sonra yeniden dolu listeyi de fetch etmemekti.
+
+sıfırdan böyle çalıştırınca hiç bir türlü ülkeler yüklenmiyor. Bir kere uncommented olarak çalıştırmak gerekiyor. sonra yoruma yeniden alınca çalışıyor. Cache sıkıntısı olduğunu düşündüğüm için if else bloğu yazmayı düşündüm ama useEffect if ile çalışmıyor. 
+
+
 # !!!!IMPORTANT
 Because of the cache causes, there is one block of code that needs to be taken outside of the comment and run once, and then commented again in pages/Home.js component.
 
