@@ -1,26 +1,20 @@
-cache sıkıntısı olduğunu düşündüğüm bir sıkıntı var.
-Home.jsx deki  
+/* 
 
-const dispatch = useDispatch();
-  const countries = useSelector((state) => state.counter.countries);
-  console.log("frender")
-  console.log(countries)
+Eğer key olmazsa Warning: Each child in a list should have a unique "key" prop. 
 
-altındaki 
+Key olur unique olmazsa
 
- /* useEffect(() => { //use effectte if else yok
-    dispatch(fetchCountriesData());
-  }, []); */
-
-kod bloğunu yoruma almıştık. sebebi de delete page de silme işlemi yapıldıktan sonra yeniden dolu listeyi de fetch etmemekti.
-
-sıfırdan böyle çalıştırınca hiç bir türlü ülkeler yüklenmiyor. Bir kere uncommented olarak çalıştırmak gerekiyor. sonra yoruma yeniden alınca çalışıyor. Cache sıkıntısı olduğunu düşündüğüm için if else bloğu yazmayı düşündüm ama useEffect if ile çalışmıyor. 
-
-
-# !!!!IMPORTANT
-Because of the cache causes, there is one block of code that needs to be taken outside of the comment and run once, and then commented again in pages/Home.js component.
-
-
+9react-dom.development.js:86 Warning: Encountered two children with the same key, `[object Object]`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+    at div
+    at div
+    at Home (http://localhost:3000/main.181d7920c195571c3c68.hot-update.js:45:84)
+    at RenderedRoute (http://localhost:3000/static/js/bundle.js:63546:5)
+    at Routes (http://localhost:3000/static/js/bundle.js:64178:5)
+    at div
+    at App
+    at Provider (http://localhost:3000/static/js/bundle.js:59428:3)
+    at Router (http://localhost:3000/static/js/bundle.js:64116:15)
+    at BrowserRouter (http://localhost:3000/static/js/bundle.js:62219:5) */
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
