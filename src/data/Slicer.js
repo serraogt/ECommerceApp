@@ -40,7 +40,7 @@ export default counterSlice.reducer;
 
 
 // Redux Thunk kullanarak API'den verileri çekme
-//bunu yapamamıştım chatgpt verdi tam bilmiyorum
+//bunu yapamamıştım chatgpt verdi sonradan öğrendim
 export const fetchCountriesData = () => async (dispatch) => {
   try {
     const response = await fetch("https://restcountries.com/v3.1/all");
