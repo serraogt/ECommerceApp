@@ -3,7 +3,7 @@ import './App.css';
 import React, {useEffect} from 'react';
 import {Link, Route, Routes} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { store } from './data/Store.jsx';
+import store from './data/Store.jsx';
 import { Provider } from 'react-redux'
 
 import Home from './pages/Home';
