@@ -20,7 +20,7 @@ function Home() {
   const [chosenValue,setChosenValue]=useState([]);
  
   const countries = useSelector((state) => state.counter.countries);
-  console.log("frender")
+  console.log("home render")
   console.log(countries)
 
  /* useEffect(() => {
