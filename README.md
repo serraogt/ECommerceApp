@@ -2,6 +2,7 @@ NOTLARIM: COOKIELER 1BY1 BASTIRILMIYOR. hep son hali bastırılıyordu. biraz da
 
 Too many re-renders. React limits the number of renders to prevent an infinite loop.
 
+chatgpt setstateleri bir useeffect içinde toplamayı önerdi ama neye göre useeffecte geçtiğini anlamadım, ayrıca o da çalışmıyordu :/
 
 ## Storage spaces and their lifecycles:
 
