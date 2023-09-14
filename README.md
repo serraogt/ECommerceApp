@@ -1,19 +1,19 @@
-##Storage spaces and their lifecycles:
+## Storage spaces and their lifecycles:
 
-###Redux Store
+### Redux Store
   *Created only once when the application executed.
   *Lifecycle: Does not gets cleared neighter when page is refreshed nor browser is closed
   *Usage: Stores application-wise data between components
-###State
+### State
   *Created for components and variables 
   *Lifecycle: Exists with components, disappears when component gets cleared or page gets refreshed
   *Usage: Temporary occasions and interactions, for only one component.
-###Cookies
+### Cookies
   *Store small datasets in browser
   *Lifecycle: Stored for specifically limited time, user can also delete the cookies
   *Usage: user logs, preferences, personalized experience
   **no good for highly confidential data
-###Local Storage
+### Local Storage
   *Big capacity data on browser
   *Lifecycle: Stays until user deletes
   *Usage: Permanent storage
