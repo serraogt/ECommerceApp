@@ -1,3 +1,8 @@
+NOTLARIM: COOKIELER 1BY1 BASTIRILMIYOR. hep son hali bastırılıyordu. biraz daha önce konuştuğumuz zaman konularına benziyordu ama düzeltemedim. try catch denedim olmadı. await ya da sleep mi denemeliyim? şuan setState ile denedim ama şöyle bir hata alıyorum =>
+
+Too many re-renders. React limits the number of renders to prevent an infinite loop.
+
+
 ## Storage spaces and their lifecycles:
 
 ### Redux Store
@@ -8,8 +13,10 @@
   *Created for components and variables 
   *Lifecycle: Exists with components, disappears when component gets cleared or page gets refreshed
   *Usage: Temporary occasions and interactions, for only one component.
+
+  
 ### Cookies
-  *Store small datasets in browser
+  *Store small datasets in **** browser and server. 
   *Lifecycle: Stored for specifically limited time, user can also delete the cookies
   *Usage: user logs, preferences, personalized experience
   **no good for highly confidential data
@@ -18,6 +25,11 @@
   *Lifecycle: Stays until user deletes
   *Usage: Permanent storage
   **no good for highly confidential data
+Any window inside their browser
+
+### Session Storage
+  * For one tab in browser.
+  * When you close the tab it disappears.
 
   
 /* 
