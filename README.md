@@ -1,10 +1,32 @@
+##Storage spaces and their lifecycles:
+
+###Redux Store
+  *Created only once when the application executed.
+  *Lifecycle: Does not gets cleared neighter when page is refreshed nor browser is closed
+  *Usage: Stores application-wise data between components
+###State
+  *Created for components and variables 
+  *Lifecycle: Exists with components, disappears when component gets cleared or page gets refreshed
+  *Usage: Temporary occasions and interactions, for only one component.
+###Cookies
+  *Store small datasets in browser
+  *Lifecycle: Stored for specifically limited time, user can also delete the cookies
+  *Usage: user logs, preferences, personalized experience
+  **no good for highly confidential data
+###Local Storage
+  *Big capacity data on browser
+  *Lifecycle: Stays until user deletes
+  *Usage: Permanent storage
+  **no good for highly confidential data
+
+  
 /* 
 
-Eğer key olmazsa Warning: Each child in a list should have a unique "key" prop. 
+Eğer key olmazsa Warning: Each child in a list should have a unique "key" prop.
 
 Key olur unique olmazsa
 
-9react-dom.development.js:86 Warning: Encountered two children with the same key, `[object Object]`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+9react-dom.development.js:86 Warning: Encountered two children with the same key, `[object Object]`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupdported and could change in a future version.
     at div
     at div
     at Home (http://localhost:3000/main.181d7920c195571c3c68.hot-update.js:45:84)
@@ -17,6 +39,10 @@ Key olur unique olmazsa
     at BrowserRouter (http://localhost:3000/static/js/bundle.js:62219:5) */
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+
+
 
 ## Available Scripts
 
